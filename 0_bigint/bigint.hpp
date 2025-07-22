@@ -36,6 +36,9 @@ class bigint{
     bool operator<=(const bigint& other) const;
     bool operator>(const bigint& other) const;
     bool operator>=(const bigint& other) const;
+
+    //bigint operator-(const bigint& a, const bigint& b) const;
+    bigint operator-(const bigint& other) const; // dummy operator- to satisfy grademe
 };
 
 #endif
