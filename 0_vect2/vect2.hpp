@@ -52,9 +52,10 @@ class vect2{
 
     // void setY(int newY) throw();
 
+	friend vect2 operator*(int scalar, const vect2& v);
 
 };
 // Scalar multiplication (left: int * vect2)
-vect2 operator*(int scalar, const vect2& v);
+//vect2 operator*(int scalar, const vect2& v);
 
 #endif
