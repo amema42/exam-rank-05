@@ -12,6 +12,7 @@ public:
 	bigint();
 	bigint(unsigned int n);
 	bigint(const bigint& other);
+	bigint& operator=(const bigint& other);
 
 	bigint operator+(const bigint& other) const;
 	bigint& operator+=(const bigint& other);

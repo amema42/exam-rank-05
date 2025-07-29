@@ -13,6 +13,15 @@ bigint::bigint(unsigned int n) {
 
 bigint::bigint(const bigint& other) : digits(other.digits) {}
 
+bigint& bigint::operator=(const bigint& other){
+	if(this != &other)
+	{
+		this->digits = other.digits;
+	}
+	return *this;
+}
+
+
 bigint bigint::operator+(const bigint& other) const {
 	bigint res;
 	res.digits.clear();
@@ -33,16 +42,19 @@ bigint bigint::operator+(const bigint& other) const {
 }
 
 bigint& bigint::operator+=(const bigint& other) {
-	return *this = *this + other;
+	*this = *this + other;
+	return *this;
 }
 
 bigint bigint::operator<<(unsigned int n) const {
+	if (digits == "0") { return bigint(0); }
 	bigint res = *this;
 	res.digits.insert(0, n, '0');
 	return res;
 }
 
 bigint& bigint::operator<<=(unsigned int n) {
+	if (digits == "0") { return *this; }
 	digits.insert(0, n, '0');
 	return *this;
 }

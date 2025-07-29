@@ -51,6 +51,7 @@ Temporary Items
 
 *.icloud
 
+0_bigint/v2/*
 .vscode
 .vscode/*
 .vscode/settings.json

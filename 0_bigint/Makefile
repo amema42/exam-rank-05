@@ -2,7 +2,7 @@ NAME = bigint
 SRCS = bigint.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror #-std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .PHONY: all clean fclean re
 
