@@ -98,8 +98,8 @@ void tree_bag::destroy_tree(node *current) {
 void tree_bag::print_node(node *current) {
 	if (current != nullptr) {
 		print_node(current->l);
-		if (current->value != 0)
-			std::cout << current->value << " ";
+		//if (current->value != 0)
+		std::cout << current->value << " ";
 		print_node(current->r);
 	}
 }

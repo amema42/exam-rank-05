@@ -6,27 +6,62 @@ array_bag::array_bag() {
   data = nullptr;
 }
 
+// array_bag::array_bag(const array_bag &src) {
+//   size = src.size;
+//   data = new int[size];
+//   for (int i = 0; i < size; i++) {
+// 	data[i] = src.data[i];
+//   }
+// }
+
+// array_bag &array_bag::operator=(const array_bag &src) {
+// 	if (this != &src) {
+// 		if (data != nullptr) {
+// 			delete[] data;
+// 			data = nullptr;
+// 		}
+// 		size = src.size;
+// 		data = new int[size];
+// 		for (int i = 0; i < size; i++) {
+// 			data[i] = src.data[i];
+// 		}
+// 	}
+// 	return *this;
+// }
+
 array_bag::array_bag(const array_bag &src) {
   size = src.size;
-  data = new int[size];
-  for (int i = 0; i < size; i++) {
-	data[i] = src.data[i];
+  if (size > 0) {
+    data = new int[size];
+    for (int i = 0; i < size; i++) {
+      data[i] = src.data[i];
+    }
+  } else {
+    data = nullptr;
   }
 }
 
+// Operator= corretto
 array_bag &array_bag::operator=(const array_bag &src) {
-	if (this != &src) {
-		if (data != nullptr) {
-			delete[] data;
-			data = nullptr;
-		}
-		size = src.size;
-		data = new int[size];
-		for (int i = 0; i < size; i++) {
-			data[i] = src.data[i];
-		}
-	}
-	return *this;
+  if (this != &src) {
+    // Libera memoria esistente
+    if (data != nullptr) {
+      delete[] data;
+      data = nullptr;
+    }
+    
+    // Copia nuovi dati
+    size = src.size;
+    if (size > 0) {
+      data = new int[size];
+      for (int i = 0; i < size; i++) {
+        data[i] = src.data[i];
+      }
+    } else {
+      data = nullptr;
+    }
+  }
+  return *this;
 }
 
 array_bag::~array_bag() {
