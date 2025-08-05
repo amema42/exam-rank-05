@@ -11,7 +11,13 @@ the operator [] can be used to access the component of your vector (with 0 and 1
 Your function must be printable with the << operator such as:
         std::cout << v << std::endl;
 produce the same output as:
-        std::cout << "{" << v[0] << ", " << v[1] << "}" << std::endl;
+        out << "{" << v[0] << ", " << v[1] << "}" << std::endl; 
+        /* << operator example
+        std::ostream& operator<<(std::ostream& os, const vect2& v) {
+	os << "{" << v.x << ", " << v.y << "}";
+	return os;
+        }
+        */
 
 You will find a main in this directory that must work with your class.
 
