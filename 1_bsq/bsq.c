@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_Y 5000
-#define MAX_X 1
+#define MAX_Y 1000
+#define MAX_X 1000
 
 enum cell_state { EMPTY = 0, OBSTACLE = 1, FULL = 2 };
 
@@ -19,8 +19,10 @@ typedef struct {
 } t_data;
 
 int	min3(int a, int b, int c) {
-	if (a <= b && a <= c) return a;
-	if (b <= a && b <= c) return b;
+	if (a <= b && a <= c)
+		return a;
+	if (b <= a && b <= c)
+		return b;
 	return c;
 }
 
