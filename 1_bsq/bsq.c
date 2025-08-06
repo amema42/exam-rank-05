@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_Y 100
-#define MAX_X 200
+#define MAX_Y 1000
+#define MAX_X 2000
 
 enum cell_state { EMPTY = 0, OBSTACLE = 1, FULL = 2 };
 
@@ -36,24 +36,36 @@ int	read_map(FILE *file, t_data *data) {
 
 	while (y < data->y && getline(&line, &len, file) != -1) {
 		int read_len = strlen(line);
-		if (line[read_len - 1] == '\n') line[--read_len] = '\0';
-		if (read_len == 0 || read_len > MAX_X) { free(line); return 0; }
+		if (line[read_len - 1] == '\n')
+			line[--read_len] = '\0';
+		if (read_len == 0 || read_len > MAX_X){
+			free(line);
+			return 0;
+		}
 
 		if (y == 0)
 			data->x = read_len;
-		else if (read_len != data->x) { free(line); return 0; }
+		else if (read_len != data->x) {
+			free(line);
+			return 0;
+		}
 
 		for (x = 0; x < data->x; x++) {
 			if (line[x] == data->empty)
 				data->map[y][x] = EMPTY;
 			else if (line[x] == data->obstacle)
 				data->map[y][x] = OBSTACLE;
-			else { free(line); return 0; }
+			else {
+				free(line);
+				return 0;
+			}
 		}
 		y++;
 	}
 	free(line);
-	if (y != data->y) return 0;
+	if (y != data->y) {
+		return 0;
+	}
 	return 1;
 }
 
