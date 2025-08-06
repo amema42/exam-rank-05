@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_Y 1000
-#define MAX_X 2000
+#define MAX_Y 5000
+#define MAX_X 1
 
 enum cell_state { EMPTY = 0, OBSTACLE = 1, FULL = 2 };
 
